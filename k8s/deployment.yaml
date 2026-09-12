@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-app
+  labels:
+    app: retail-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: retail-app
+  template:
+    metadata:
+      labels:
+        app: retail-app
+    spec:
+      containers:
+      - name: retail-app
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
